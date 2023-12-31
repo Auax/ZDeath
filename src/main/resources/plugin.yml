@@ -1,0 +1,15 @@
+name: ZDeath
+version: '${project.version}'
+main: org.zlls.zdeath.ZDeath
+api-version: '1.20'
+
+commands:
+  start-game:
+    description: Start a ZDEATH game
+    usage: /<command>
+    permission: zdeath.admin
+
+  stop-game:
+    description: Stop a ZDEATH game
+    usage: /<command>
+    permission: zdeath.admin

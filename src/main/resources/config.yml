@@ -1,0 +1,33 @@
+kit:
+  STONE_SWORD: 1
+  STONE_AXE: 1
+  STONE_PICKAXE: 1
+  STONE_SHOVEL: 1
+  BREAD: 15
+  OAK_PLANKS: 32
+
+world: world
+
+# Lives. If not specified, the default value will be 3.
+lives: 3
+
+
+# The message shown on screen when the game starts
+game_start_title_s: Game
+game_start_title_s1: Started!
+
+# The message shown when the game ends.
+# Note: the name of the winner will be added at the end (Victory of <winner's name>!)
+game_end_title_s: Victory
+game_end_title_s1: of
+
+# Where to tp all players and create a barrier around
+location: # (x,y,z)
+  - 0.0
+  - 100.0
+  - 0.0
+
+# Scoreboard values
+sc_players_left: Players left
+sc_lives: Lives
+sc_kills: Kills
