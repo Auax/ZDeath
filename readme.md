@@ -13,6 +13,17 @@ that being said, it is in development and there is so much room of improvement.
 This being a personal project means I might or might not update the project or improve it, but it does work, and it can
 help as a foundation for other users.
 
+### Permissions
+
+The permission to manage the game. Is `zdeath.admin`.
+You can manage it with _LuckyPerms_.
+
+### Commands
+**There are currently three commands:**
+- `/start-game`
+- `/stop-game`
+- `/game-status`
+
 ### **The gamemode includes:**
 
 - Kit system
