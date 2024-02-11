@@ -15,7 +15,7 @@ help as a foundation for other users.
 
 ### Permissions
 
-The permission to manage the game. Is `zdeath.admin`.
+The permission to manage the game is `zdeath.admin`.
 You can manage it with _LuckyPerms_.
 
 ### Commands
