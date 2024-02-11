@@ -13,3 +13,8 @@ commands:
     description: Stop a ZDEATH game
     usage: /<command>
     permission: zdeath.admin
+
+  game-status:
+    description: Get the current game status. (playing / stopped)
+    usage: /<command>
+    permission: zdeath.admin

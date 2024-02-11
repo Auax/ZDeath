@@ -1,6 +1,5 @@
 package org.zlls.zdeath.events;
 
-import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,7 +11,6 @@ import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import org.zlls.zdeath.ZDeath;
 import org.zlls.zdeath.commands.StopGame;
-import org.zlls.zdeath.tasks.PlayerManager;
 
 public class GameEvents implements Listener {
     public ZDeath plugin;
@@ -33,7 +31,7 @@ public class GameEvents implements Listener {
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
         // Game must be started otherwise do nothing
-        if (!(plugin.hasGameStarted)) {
+        if (!(plugin.isGameStarted)) {
             return;
         }
 

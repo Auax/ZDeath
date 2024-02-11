@@ -6,6 +6,7 @@ kit:
   BREAD: 15
   OAK_PLANKS: 32
 
+# The name of the world in use.
 world: world
 
 # Lives. If not specified, the default value will be 3.
@@ -21,7 +22,7 @@ game_start_title_s1: Started!
 game_end_title_s: Victory
 game_end_title_s1: of
 
-# Where to tp all players and create a barrier around
+# Spawn position to start the game. This is important as it determines where to center the storm and create the barriers.
 location: # (x,y,z)
   - 0.0
   - 100.0
@@ -31,3 +32,11 @@ location: # (x,y,z)
 sc_players_left: Players left
 sc_lives: Lives
 sc_kills: Kills
+
+# Storm settings. (Closing circle)
+# Starting size of the storm in square blocks.
+max_storm_size: 5000
+# Smallest size of the storm
+min_storm_size: 100
+# How many blocks to close per second. (block/second)
+storm_rate: 1

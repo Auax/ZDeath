@@ -9,12 +9,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.zlls.zdeath.ZDeath;
+import org.zlls.zdeath.misc.GetLocation;
 import org.zlls.zdeath.tasks.BarrierManager;
 import org.zlls.zdeath.tasks.Countdown;
+import org.zlls.zdeath.tasks.Storm;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class StartGame implements CommandExecutor {
     private final ZDeath plugin; // Store a reference to the plugin instance
@@ -32,7 +33,7 @@ public class StartGame implements CommandExecutor {
         }
 
         // Set global variable to true (important to the scoreboard works in game mode)
-        plugin.hasGameStarted = true;
+        plugin.isGameStarted = true;
         plugin.remainingPlayers = Bukkit.getServer().getOnlinePlayers().size();
 
         List<ItemStack> itemStacks = new ArrayList<>();
@@ -50,20 +51,10 @@ public class StartGame implements CommandExecutor {
         }
         ItemStack[] itemsArray = itemStacks.toArray(new ItemStack[0]); // Convert the list to an array
 
-
         // Create location
-        World world = Bukkit.getWorld(Objects.requireNonNull(plugin.CONFIG.getString("world")));
-        List<Double> coords = (List<Double>) plugin.CONFIG.getList("location");
-        Location location;
+        Location location = GetLocation.GetConfigLocation(plugin);
 
-        if (coords != null) {
-            location = new Location(world, coords.get(0), coords.get(1), coords.get(2), 90, 0);
-        } else {
-            commandSender.sendMessage(ChatColor.RED + "Error: 'location' value in config.yml file is not defined! Sending players to default: (0,100,0)");
-            location = new Location(world, 0, 100, 0, 90, 0);
-        }
         // Create barrier to avoid players leaving the zone before the countdown is over
-
         BarrierManager.buildBarrier(location, Material.BARRIER, 2);
 
         for (Player playerOnline : Bukkit.getServer().getOnlinePlayers()) {
@@ -96,6 +87,9 @@ public class StartGame implements CommandExecutor {
             BarrierManager.buildBarrier(location, Material.AIR, 2);
         });
         countdown.startCountdown();
+
+        // Start storm update
+        plugin.storm.start();
 
         return true;
 

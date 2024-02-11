@@ -22,8 +22,6 @@ public class GameScoreboard {
     }
 
     public void init() {
-
-
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -55,7 +53,7 @@ public class GameScoreboard {
             lines.add(ChatColor.STRIKETHROUGH + "-------------------");
             lines.add(ChatColor.RED + "» " + ChatColor.BLUE + "Ping: " + ChatColor.RED + player.getPing() + ChatColor.GRAY + " ms");
 
-            if (plugin.hasGameStarted) {
+            if (plugin.isGameStarted) {
                 lines.add(ChatColor.RED + "» " + ChatColor.BLUE + plugin.CONFIG.getString("sc_players_left") + ": " + ChatColor.RED + plugin.remainingPlayers);
                 lines.add(ChatColor.RED + "» " + ChatColor.BLUE + plugin.CONFIG.getString("sc_lives") + ": " + ChatColor.RED + plugin.playerManager.getIntFromKey(player, PlayerManager.LIVES_KEY));
                 lines.add(ChatColor.RED + "» " + ChatColor.BLUE + plugin.CONFIG.getString("sc_kills") + ": " + ChatColor.RED + plugin.playerManager.getIntFromKey(player, PlayerManager.KILLS_KEY));
